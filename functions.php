@@ -112,22 +112,6 @@ function init_scripts() {
 return true;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-/* SVG Support */	
-
-function bodhi_svgs_disable_real_mime_check( $data, $file, $filename, $mimes ) {
-    $wp_filetype = wp_check_filetype( $filename, $mimes );
-
-    $ext = $wp_filetype['ext'];
-    $type = $wp_filetype['type'];
-    $proper_filename = $data['proper_filename'];
-
-    return compact( 'ext', 'type', 'proper_filename' );
-}
-add_filter( 'wp_check_filetype_and_ext', 'bodhi_svgs_disable_real_mime_check', 10, 4 );
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -148,7 +132,7 @@ function add_category_to_single($classes, $class) {
 }
 
 
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /* Change Gravity Button Type To FontAwesome */
@@ -156,4 +140,51 @@ function add_category_to_single($classes, $class) {
 add_filter("gform_submit_button_2", "form_submit_button", 10, 2);
 function form_submit_button($button, $form){
 return "<button class='button' id='gform_submit_button_{$form["id"]}'><i class='fa fa-fw fa-envelope'></i></button>";
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* SVG Support */	
+
+function bodhi_svgs_disable_real_mime_check( $data, $file, $filename, $mimes ) {
+    $wp_filetype = wp_check_filetype( $filename, $mimes );
+
+    $ext = $wp_filetype['ext'];
+    $type = $wp_filetype['type'];
+    $proper_filename = $data['proper_filename'];
+
+    return compact( 'ext', 'type', 'proper_filename' );
+}
+add_filter( 'wp_check_filetype_and_ext', 'bodhi_svgs_disable_real_mime_check', 10, 4 );
+
+remove_filter('the_content', 'wptexturize');
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* If Modified Since */
+
+add_action('template_redirect', 'last_mod_header');
+
+function last_mod_header($headers) {
+     if( is_singular() ) {
+            $post_id = get_queried_object_id();
+            $LastModified = gmdate("D, d M Y H:i:s \G\M\T", $post_id);
+            $LastModified_unix = gmdate("D, d M Y H:i:s \G\M\T", $post_id);
+            $IfModifiedSince = false;
+            if( $post_id ) {
+                if (isset($_ENV['HTTP_IF_MODIFIED_SINCE']))
+                    $IfModifiedSince = strtotime(substr($_ENV['HTTP_IF_MODIFIED_SINCE'], 5));  
+                if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']))
+                    $IfModifiedSince = strtotime(substr($_SERVER['HTTP_IF_MODIFIED_SINCE'], 5));
+                if ($IfModifiedSince && $IfModifiedSince >= $LastModified_unix) {
+                    header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
+                    exit;
+                } 
+     header("Last-Modified: " . get_the_modified_time("D, d M Y H:i:s", $post_id) );
+                }
+        }
 }
