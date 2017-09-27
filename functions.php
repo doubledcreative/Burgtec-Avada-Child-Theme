@@ -12,7 +12,7 @@ function avada_lang_setup() {
 add_action( 'after_setup_theme', 'avada_lang_setup' );
 
     
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /* Load LESS */
@@ -22,7 +22,7 @@ function childtheme_scripts() {
 wp_enqueue_style('less', get_stylesheet_directory_uri() .'/css/style.less');
 add_filter('style_loader_tag', 'my_style_loader_tag_function');
 
-wp_enqueue_script('less', get_stylesheet_directory_uri() .'/scripts/less.min.js', array('jquery'),'2.5.0');
+wp_enqueue_script('less', get_stylesheet_directory_uri() .'/scripts/less.min.js', array('jquery'),'2.7.1');
 
 }
 add_action('wp_enqueue_scripts','childtheme_scripts', 150);
@@ -32,7 +32,7 @@ function my_style_loader_tag_function($tag){
 }
 
 
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 /* Load Fonts dot com */
@@ -188,3 +188,43 @@ function last_mod_header($headers) {
                 }
         }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* WooCommerce - Show Price Ex VAT for Trade and Stock In User Roles */
+
+function sunstofey_override_woocommerce_tax_display( $value ) {
+	if ( current_user_can( 'trade' ) ) {
+		return 'excl';
+	}
+
+	return $value;
+}
+
+add_filter( 'pre_option_woocommerce_tax_display_shop', 'sunstofey_override_woocommerce_tax_display' );
+add_filter( 'pre_option_woocommerce_tax_display_cart', 'sunstofey_override_woocommerce_tax_display' );
+
+function sunstofey_override_woocommerce_tax_display1( $value ) {
+	if ( current_user_can( 'stockin' ) ) {
+		return 'excl';
+	}
+
+	return $value;
+}
+
+add_filter( 'pre_option_woocommerce_tax_display_shop', 'sunstofey_override_woocommerce_tax_display1' );
+add_filter( 'pre_option_woocommerce_tax_display_cart', 'sunstofey_override_woocommerce_tax_display1' );
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* WooCommerce - Trade and Stock Shipping */
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
