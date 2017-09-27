@@ -1,0 +1,139 @@
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Burgtec - Gravity Forms
+
+//////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.gform_wrapper{margin: 0!important; max-width: 100%!important;
+	.gform_body{width:100%!important;
+		.gform_fields{
+			.gfield{padding:0!important;margin-top:0!important;margin-bottom:20px;
+				.ginput_container{
+					input, textarea{padding:10px 20px!important;margin:0!important;.avenir(@size:14px;);background-color: @white;.border-radius(3px);
+						&:focus{outline:none!important;background:#fff8db!important;.transition();}
+					}
+					textarea{padding:20px!important;}
+					input{height:60px; width: 100%;}
+					.name_first, .name_last{
+						label{display:none;}
+					}
+				}
+			}
+		}
+	}
+	.gform_footer{width:100%;display:block;margin:40px 0 0 0!important;padding:0!important;
+		input[type=submit]{display:block!important; margin:0 auto!important;.button();.fusion-button-slate();}
+	}
+}
+
+
+/* Float Left and Right for Single Line Text Fields */
+
+.grav_half_left, .grav_half_right{width:49%;clear:none!important;}
+.grav_half_left{float:left;}
+.grav_half_right{float:right;}
+
+
+/* Placeholder Font Colour */
+
+::-webkit-input-placeholder{color:#333333!important;}
+:-moz-placeholder{color:#333333!important;}
+::-moz-placeholder{color:#333333!important;}
+:-ms-input-placeholder{color:#333333!important;}
+.placeholder{color:#333333!important;}
+
+
+/* Validation Styling */
+
+.gform_validation_error{
+	li.gfield.gfield_error.gfield_contains_required div.ginput_container{margin: 15px 15px 0!important;}
+	.validation_error{color: @slate1!important; font-size: 20px!important; font-weight: 100!important; margin-bottom: 25px!important; border: 0!important; padding-left: 10%!important; padding-right: 10%!important; width: 100%!important; text-align: center;
+}
+	.gform_body{
+		input{background-color: aqua;}
+		li.gfield.gfield_error {border: 1px solid @yellow!important; background-color: @yellow;}
+
+		.gform_fields{
+			#field_1_2, #field_1_6{max-width:100%!important; margin-bottom: 15px!important; width: 100%;}
+			#field_1_4, #field_1_5{clear:none!important; margin-bottom: 15px!important; width:49%;}
+			#field_1_4{float: left;}
+			#field_1_5{float: right;}
+				
+			#field_1_7 {
+				.ginput_container{
+					input{color: @white !important; background: @white; border: 1px solid #d2d2d2!important;
+						&:focus{outline:none!important;background:#fff8db!important;.transition();} color: @slate1!important;
+					}
+				}
+			}
+				
+			.validation_message{color: @slate1!important; font-weight: 100!important; line-height: 16px; padding: 15px 10px!important;}
+			.gfield textarea, .gform_wrapper, .large {border: 1px solid #d2d2d2!important; background-color: @white; width: 100%!important;}
+			.gfield{
+				.ginput_container{
+					input, textarea{&:focus{outline:none!important;background:#fff8db!important;.transition();} color: @slate1!important;}
+				}
+			}
+		}
+	}	
+}
+
+
+/* Placeholder - Validation Font Colour */
+
+.gform_validation_error{
+	::-webkit-input-placeholder{color: #333333!important;}
+	:-moz-placeholder{color: #333333!important;}
+	::-moz-placeholder{color: #333333!important;}
+	:-ms-input-placeholder{color: #333333!important;}
+	.placeholder{color: #333333!important;}
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+/* MEDIA QUERIES 1279px ///////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+@media only screen and (max-width: 1279px) {
+	
+	
+	
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+/* MEDIA QUERIES 1024px ///////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+@media only screen and (max-width: 1024px) {
+
+
+	
+}
+	
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+/* MEDIA QUERIES 800px ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+@media only screen and (max-width: 800px) {
+
+	
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+/* MEDIA QUERIES 500px ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+@media only screen and (max-width: 500px) {
+	
+	
+	
+}
