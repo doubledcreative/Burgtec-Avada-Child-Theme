@@ -240,6 +240,29 @@ Burgtec - Blog
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* BLOG PRODUCT UPSELL STYLING */
+
+.post-template-default, .single, .single-post{
+	.woocommerce{
+		.products{
+			.product{margin-top: 10px!important; margin-bottom: 10px!important;
+				.product-details{
+					.product-details-container{
+						.product-title{
+							&:after{display: none;}
+							a{font-size: 16px !important; line-height: 20px !important;}
+						}	
+					}
+				}	
+			}
+		}
+	}
+}
+
+
 
 
 
@@ -276,6 +299,7 @@ Burgtec - Blog
 
 @media only screen and (max-width: 800px) {
 
+
 	/* Title Bar Styling - Blog & Blog Archive */
 	.category-blog{
 		.fusion-page-title-bar{
@@ -304,7 +328,9 @@ Burgtec - Blog
 		}
 	}
 	
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////	
+	
 	
 	/* BLOG */
 	
@@ -349,7 +375,36 @@ Burgtec - Blog
 		.pagination {margin: 40px 0px; width: 100%; text-align: center;}
 	}
 	
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	
+
+	/* BLOG PRODUCT UPSELL STYLING */
+	
+	.post-template-default, .single, .single-post{
+		.woocommerce{
+			.products{
+				.product{margin-top: 15px!important; margin-bottom: 15px!important; width: 80%;
+					.product-details{
+						.product-details-container{
+							.product-title{
+								&:after{display: none;}
+								a{font-size: 16px !important; line-height: 20px !important;}
+							}	
+						}
+					}	
+				}
+			}
+		}
+	}
+	
+	
 }
+
+
+
+
+
 
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -358,6 +413,7 @@ Burgtec - Blog
 
 
 @media only screen and (max-width: 500px) {
+	
 	
 	/* Title Bar Styling - Blog & Blog Archive */
 	.category-blog{
@@ -386,6 +442,7 @@ Burgtec - Blog
 			}
 		}
 	}
+	
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -425,6 +482,29 @@ Burgtec - Blog
 					}
 				}	
 				.fusion-post-content-wrapper{padding: 21px 20px 30px;}
+			}
+		}
+	}
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////	
+	
+	
+	/* BLOG PRODUCT UPSELL STYLING */
+	
+	.post-template-default, .single, .single-post{
+		.woocommerce{
+			.products{
+				.product{margin-top: 15px!important; margin-bottom: 15px!important; width: 100%;
+					.product-details{
+						.product-details-container{
+							.product-title{
+								&:after{display: none;}
+								a{font-size: 16px !important; line-height: 20px !important;}
+							}	
+						}
+					}	
+				}
 			}
 		}
 	}
