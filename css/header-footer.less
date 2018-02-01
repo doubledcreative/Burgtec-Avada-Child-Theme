@@ -135,7 +135,6 @@ Burgtec - Header & Footer
 .fusion-megamenu-wrapper{
 	.fusion-megamenu-holder{
 		.fusion-megamenu{background: @black; .filter(); background-size: cover;
-			
 			.menu-item{padding: 0; background-size: cover; .filter();
 				.fusion-megamenu-title{padding: 0 30px;
 					a{.avant-garde(@size: 18px, @height: 18px); padding: 40px 0 15px; .text-shadow();}
@@ -151,7 +150,6 @@ Burgtec - Header & Footer
 						}
 						.fusion-button{.button-mini(); margin: 20px 0 5px!important; background: @yellow;
 							.fusion-button-text{color: @black;}
-						
 							&:hover{background: @white;
 								.fusion-button-text{color: @slate1;}
 							}
@@ -179,20 +177,20 @@ Burgtec - Header & Footer
 						&:hover{color: @yellow;}
 					}
 					.fusion-title{margin-bottom: 0!important;
-						h4{color:@white;.avant-garde();text-transform:uppercase!important;}
+						h4{color:@white;.avant-garde();text-transform:uppercase!important; line-height: 24px!important;}
 					}
-					.title-nav{padding-bottom: 10px!important;}
-					.title-newsletter{padding-bottom: 15px!important;}
-					.title-social{padding-bottom: 5px!important;}
+					.title-nav{padding-bottom: 8px!important;}
+					.title-newsletter{padding-bottom: 20px!important;}
+					.title-social{margin-top: 30px!important; padding-bottom: 5px!important;}
 					.logo-column{margin-bottom: 0!important;
 						.footer-logo-svg{margin: 2px 80px 20px 0; display: block; width: 300px; max-width: 300px;}
 					}
 					.quick-nav-column{margin-bottom: 0!important;
 						.ddc-footer-menu{
 							.widget{margin-bottom: 0!important;
-								.menu-footer-menu-container{
+								.menu-footer-menu-container, .menu-footer-menu-2-container{
 									.menu{columns: 2; -webkit-columns: 2; -moz-columns: 2;
-										.menu-item{border: none; padding: 10px 0!important;
+										.menu-item{border: none; padding: 10px 0!important; line-height: 16px;
 											a{
 												&:before{display: none;}
 											}
@@ -203,20 +201,6 @@ Burgtec - Header & Footer
 						}
 					}
 					.newsletter-column{margin-bottom: 0!important;
-						#gform_wrapper_2{margin: 10px 0 40px!important;
-							#gform_2{display:flex!important; height: 60px!important;}
-							.gform_body{padding:0!important;margin:0!important;
-								.ginput_container{margin-top: 0!important; 
-									input{border-right: none; .border-radius(@border-radius: 3px 0 0 3px);}
-								}
-							}
-							.gform_footer{padding: 0!important; margin: 0!important; width: 60px!important; line-height: 23px!important;
-								.button{padding: 0!important; width: 60px!important; height: 60px!important; background: @grey3; .border-radius(@border-radius: 0 3px 3px 0); color: @white!important;
-									.fa-fw{font-size: 26px!important;}
-									&:hover{cursor: pointer; background: @yellow; .transition(); color: @black;}
-								}
-							}
-						}
 						.social-svg{width: 80px; display: block; float: left; margin: 0 5px -20px -15px;}
 					}
 				}
@@ -405,12 +389,17 @@ Burgtec - Header & Footer
 			.fusion-columns{
 				.fusion-column{margin-bottom: 0!important;
 					.ddc-footer{
-						
+					
 						.logo-column{margin-bottom: 35px!important; width: 100%!important;
 							.footer-logo-svg{max-width: 200px!important;}
 						}
+						
 						.quick-nav-column{margin-bottom: 20px!important; width: 100%!important;}
-						.newsletter-column{margin-bottom: 0!important; width: 100%!important;}
+						
+						.newsletter-column{margin-bottom: 0!important; width: 100%!important;
+							.title-social{margin-top: 40px!important;}
+						}
+						
 					}
 				}
 			}
@@ -441,7 +430,6 @@ Burgtec - Header & Footer
 			.fusion-columns{
 				.fusion-column{margin-bottom: 0!important;
 					.ddc-footer{
-						
 						.logo-column{margin-bottom: 35px!important; width: 100%!important;
 							.footer-logo-svg{width: 200px!important;}
 						}
