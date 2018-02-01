@@ -141,16 +141,17 @@ Burgtec - WooCommerce
 	
 /* Basket Totals */
 .cart_totals, .calculated_shipping{
+	h2{margin-bottom:10px!important;}
 	.shop_table, .shop_table_responsive{text-transform: uppercase;
 		.cart-subtotal{
 			th ,td{.avant-garde(); color: @slate1; padding-bottom: 0;}
 		}
-		.shipping{
-			th ,td{.avant-garde(); color: @slate1; padding-bottom: 30px;}
-		}	
+		.shipping{border-bottom:none;
+			th ,td{.avant-garde(); color: @slate1; padding-bottom: 30px;padding-top:0;}
+		}
 		.order-total{
 			th{.avant-garde(@size: 28px, @height: 38px); color: @slate1; padding: 15px 0 35px;}
-			td, .woocommerce-Price-amount, .amount, .woocommerce-Price-currencySymbol{.avant-garde(@size: 28px, @height: 38px); color: @slate1;}
+			td, .woocommerce-Price-amount, .amount, .woocommerce-Price-currencySymbol{.avant-garde(@size: 28px, @height: 38px); color: @pink1;}
 			
 			.includes_tax{display: block; width: 100%; .avenir(@weight: 400, @size: 14px, @height: 20px); color: @slate2; text-transform: capitalize;
 				.woocommerce-Price-amount, .amount, .woocommerce-Price-currencySymbol{.avenir(@weight: 400, @size: 14px, @height: 20px); color: @slate2;}
@@ -172,6 +173,25 @@ Burgtec - WooCommerce
 .woocommerce{
 	.cart-empty{line-height: 55px!important;}
 	.return-to-shop{line-height: 55px!important;}
+}
+
+/* Hide Tax apart from if user role is 'Stock-In' or 'Trade' */
+.includes_tax, .tax-rate, .cart-subtotal{display:none!important;}
+
+.role-stockin, .role-trade{
+	.includes_tax{display:block!important;}
+}
+.role-stockin, .role-trade{
+	.tax-rate{display:table-row!important;border-bottom:1px solid @white;
+		th, td{.avant-garde(); color: @slate1; padding-bottom: 0;}
+		th{text-align:left!important;text-transform:uppercase;}
+	}
+	.shipping{border-bottom:none;
+		th, td{padding-bottom:0!important;padding-top:20px!important;}
+	}
+	.cart-subtotal{display:table-row!important;
+		th, td{padding-top:20px!important;}
+	}
 }
 
 
@@ -205,15 +225,28 @@ Burgtec - WooCommerce
 			th ,td{.avant-garde(); color: @slate1; text-transform: uppercase!important;}
 		}
 		.shipping{
-			th ,td{.avant-garde(); color: @slate1; text-transform: uppercase!important;}
+			th ,td{.avant-garde(); color: @slate1; text-transform: uppercase!important;padding-top:20px!important;}
 		}
 		.order-total{border-top: 1px solid #e0dede;
 			th, td{.avant-garde(@size: 28px, @height: 38px); color: @slate1; vertical-align: text-top; text-transform: uppercase!important; padding-top: 20px!important;}
-			.woocommerce-Price-amount, .amount{.avant-garde(@size: 28px, @height: 38px); color: @slate1; text-transform: uppercase!important;
-				.woocommerce-Price-currencySymbol{.avant-garde(@size: 28px, @height: 38px); color: @slate1;}
+			.woocommerce-Price-amount, .amount{.avant-garde(@size: 28px, @height: 38px); color: @pink1; text-transform: uppercase!important;
+				.woocommerce-Price-currencySymbol{.avant-garde(@size: 28px, @height: 38px); color: @pink1;}
 			}
 			.includes_tax{display: block; width: 100%; .avenir(@weight: 400, @size: 14px, @height: 20px); color: @slate2; text-transform: capitalize;
 				.woocommerce-Price-amount, .amount, .woocommerce-Price-currencySymbol{.avenir(@weight: 400, @size: 14px, @height: 20px); color: @slate2;}
+			}
+		}
+	}
+}
+
+.role-stockin, .role-trade{
+	.woocommerce-checkout-review-order{
+		.woocommerce-checkout-review-order-table{
+			.cart-subtotal{
+				th, td{padding-top:40px!important;}
+			}
+			.shipping{border-bottom:none;
+				th, td{padding-bottom:20px!important;padding-top:0!important;}
 			}
 		}
 	}
@@ -291,6 +324,9 @@ Burgtec - WooCommerce
 		.woocommerce-orders-table__cell{
 			.pay, .view, .cancel{margin-right: 10px!important;}
 		}
+	}
+	.woocommerce-address-fields{
+		.button{.fusion-button(); float: right!important;}
 	}		
 }
 
@@ -515,6 +551,9 @@ Burgtec - WooCommerce
 			a{
 				&:hover{background:@grey1;color:@black;padding-left:15px;}
 			}
+		}
+		.shop_attributes{
+			th, td{padding:8px 0;}
 		}
 	}
 }
