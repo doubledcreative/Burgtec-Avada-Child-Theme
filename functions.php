@@ -217,14 +217,40 @@ function sunstofey_override_woocommerce_tax_display1( $value ) {
 add_filter( 'pre_option_woocommerce_tax_display_shop', 'sunstofey_override_woocommerce_tax_display1' );
 add_filter( 'pre_option_woocommerce_tax_display_cart', 'sunstofey_override_woocommerce_tax_display1' );
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-/* WooCommerce - Trade and Stock Shipping */
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+/* Add User Role Class to Body */
+
+if ( is_user_logged_in() ) {
+    add_filter('body_class','add_role_to_body');
+    add_filter('admin_body_class','add_role_to_body');
+}
+function add_role_to_body($classes) {
+    $current_user = new WP_User(get_current_user_id());
+    $user_role = array_shift($current_user->roles);
+    if (is_admin()) {
+        $classes .= 'role-'. $user_role;
+    } else {
+        $classes[] = 'role-'. $user_role;
+    }
+    return $classes;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* Remove Scripts */
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* Gravity Forms Scroll to Form after submission */
+
+add_filter( 'gform_confirmation_anchor', '__return_true' );
